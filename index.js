@@ -1,4 +1,6 @@
-const express = require('express')
+
+   
+   const express = require('express')
 const config = require('config')
 const pg = require('pg')
 const port = process.env.PORT || config.get("server.port")
@@ -6,13 +8,15 @@ const port = process.env.PORT || config.get("server.port")
 const app = express()
 app.use(express.json())
 app.use(express.urlencoded({extended:true}))
+
 const listaPedidos = []
 const pool = new pg.Pool ({
-    connectionString: "postgres://gpqacetduwgnub:53735fff5efdf0ab75c377b31a78172c7be5858731212a15f74c45dfaf373a0e@ec2-3-211-37-117.compute-1.amazonaws.com:5432/d7o937nhirr1pm",
-    ssl: {
+     connectionString: "postgres://gpqacetduwgnub:53735fff5efdf0ab75c377b31a78172c7be5858731212a15f74c45dfaf373a0e@ec2-3-211-37-117.compute-1.amazonaws.com:5432/d7o937nhirr1pm",
+       ssl: {
         rejectUnauthorized: false
     }
 })
+
 app.route('/reset').get((req, res) => { 
     let qry = "DROP TABLE IF EXISTS pedidos;"
     qry += "CREATE TABLE pedidos ("
@@ -41,6 +45,7 @@ app.route('/pedidos').get((req, res) => {
         }
     });
 })
+
 app.route('/pedido/adicionar').post((req, res) => { 
     console.log("/pedido/adicionar acionado")
     let qry = "INSERT INTO pedidos (cliente, sabor, quantidade, tamanho) "
@@ -53,9 +58,9 @@ app.route('/pedido/adicionar').post((req, res) => {
         }
     });
 })
+
 app.listen(port, () => { 
     console.log("Iniciando o servidor na porta ", port)
 })
 
 console.log("Inicio do projeto")
-
