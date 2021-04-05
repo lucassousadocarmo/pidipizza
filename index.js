@@ -59,34 +59,3 @@ app.listen(port, () => {
 
 console.log("Inicio do projeto")
 
-/*
-
-const express = require('express');
-const bodyParser = require('body-parser');
-const config = require('config');
-
-const port = process.env.PORT || config.get("server.port")
-
-const app = express()
-app.use(bodyParser.json())
-app.use(bodyParser.urlencoded({extended:true}))
-
-const listaPedidos = [
-    {nome: "Lucas", telefone: "1111111"},
-    {nome: "Maria", telefone: "2222222"},
-]
-
-app.route('/pedidos').get ((req,res) => {
-    console.log("/pedidos acionado")
-    res.status(200).json(listaPedidos);
-})
-
-app.listen(port, () => {
-    console.log("Iniciando o servidor na porta ", port)
-})
-
-console.log("Iniciando o servidor na porta ", port)
-console.log("Inicio do projeto")
-
-
-*/
