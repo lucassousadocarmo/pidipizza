@@ -1,6 +1,4 @@
-
-   
-   const express = require('express')
+const express = require('express')
 const config = require('config')
 const pg = require('pg')
 const port = process.env.PORT || config.get("server.port")
@@ -12,7 +10,21 @@ app.use(express.urlencoded({extended:true}))
 const listaPedidos = []
 const pool = new pg.Pool ({
      connectionString: "postgres://gpqacetduwgnub:53735fff5efdf0ab75c377b31a78172c7be5858731212a15f74c45dfaf373a0e@ec2-3-211-37-117.compute-1.amazonaws.com:5432/d7o937nhirr1pm",
-       ssl: {
+       ssl: { © 2021 GitHub, Inc.
+    Terms
+    Privacy
+    Security
+    Status
+    Docs
+
+    Contact GitHub
+    Pricing
+    API
+    Training
+    Blog
+    About
+
+
         rejectUnauthorized: false
     }
 })
